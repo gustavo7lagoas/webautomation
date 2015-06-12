@@ -9,10 +9,7 @@ require_all "lib"
 
 RSpec.configure do |config|
 
-  # Include page factory to deal with page objects
-  config.include PageObject::PageFactory
-
-  # Use Watir::RSpec::HtmlFormatter to get links to the screenshots, html and
+    # Use Watir::RSpec::HtmlFormatter to get links to the screenshots, html and
   # all other files created during the failing examples.
   config.add_formatter(:progress) if config.formatters.empty?
   config.add_formatter(Watir::RSpec::HtmlFormatter)
@@ -39,6 +36,9 @@ RSpec.configure do |config|
   # This needs that you've used @browser as an instance variable name in
   # before :all block.
   config.include Watir::RSpec::Helper
+
+  # Include page factory to deal with page objects
+  config.include PageObject::PageFactory
 
   # Open up the browser for each example.
   config.before :all do
